@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>htmxでAPIを使ってGetメソッドでデータを取得</title>
+    <!-- HTMXをCDNを使ってインストールしています -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </head>
+  <body>
+    <h2>htmxでAPIを使ってGetメソッドでデータを取得</h2>
+    <!-- 
+    - hx-get="url" は　fetch("url")と同じで urlをGetメソッドで取得します
+    - レスポンス処理は自動なので response =  response.json() みたいに書く必要ありません
+    - hx-trigger = "load" は window.onload = fetchData と同じで 読込時をトリガーとしています
+     -->
+    <div 
+      ○○="https://jsonplaceholder.typicode.com/posts/1" 
+      ○○="load"
+    >
+      データがここに表示されます。
+    </div>
+  </body>
+</html>

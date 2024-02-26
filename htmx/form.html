@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ここが変わらないことを確認</title>
+  <script src="../config/htmx.min.js"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <script src="https://unpkg.com/mustache@latest"></script>
+</head>
+
+<body>
+  <h2>submitのサンプル</h2>
+    <form
+      ○○="client-side-templates"
+      ○○="https://jsonplaceholder.typicode.com/users"
+      ○○="submit"
+      ○○="○○HTML swap:3s"
+      ○○="#output"
+      ○○="username"
+    >
+      <label for="name">お名前：</label>
+      <input type="text" name="name" id="name"/>
+      <button type="submit">送信</button>
+    </form>
+    <span id="output">
+      <template id="username"> あなたのお名前は: {{name}} </template>
+      3秒後に表示されます
+    </span>
+</body>
+
+</html>

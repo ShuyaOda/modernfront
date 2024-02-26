@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>htmxでAPIを使ってGETメソッドでデータを取得</title>
+  <!-- htmxをCDNでダウンロードしています -->
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <!--JSON / XMLリクエスト応答を、クライアント側のテンプレートを介してHTMLに変換出来るようになる拡張機能  -->
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <!-- mustacheというテンプレートライブラリを使用 -->
+  <script src="https://unpkg.com/mustache@latest"></script>
+</head>
+
+<body>
+  <h2>タイトルを取得</h2>
+  <!-- templateタグを作成し、idが一致したときに内容を変更する -->
+  <template id="ratin">
+    <ul>
+      <!-- {{○○}}←○○にkeyの名前を入れる -->
+      <li>UserIdは{{userId}}</li>
+      <li>タイトルは{{title}}</li>
+      <li>内容は{{body}}</li>
+    </ul>
+  </template>
+    <!-- 
+    ## ヒント
+      - hx-ext="拡張機能"で拡張機能を使えるようにしています
+      - hx-get="url" はfetch("url")と同じで urlをGetメソッドで取得しています
+      - レスポンス処理は自動なので response =  response.json() みたいに書く必要ありません
+      - hx-trigger = "load" は window.onload = fetchData と同じで 読込時をトリガーとしています      
+      - mustache-template="id" はidが一致しているtemplateタグの{{○○}}の部分に
+        Json形式からhtml形式へと変換して渡してます
+    -->
+  <div
+    ○○="client-side-templates" 
+    ○○="https://jsonplaceholder.typicode.com/posts/1"
+    ○○="load"
+    ○○="ratin">
+  </div>
+</body>
+
+</html>

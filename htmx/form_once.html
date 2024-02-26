@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ここが変わらないことを確認</title>
+  <script src="../config/htmx.min.js"></script>
+  <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+  <script src="https://unpkg.com/mustache@latest"></script>
+</head>
+
+<body>
+  <h2>submitのサンプル</h1>
+    <!-- 
+      - hx-swap="outerHTML"は　hx-targetで指定したidを含めて書きかえます　swap:3sで三秒後に書き替えます
+      - hx-target="#id" 非同期通信で書き替得る部分を指定します #をつけます。
+    -->
+    <form 
+      ○○="client-side-templates" 
+      ○○="https://jsonplaceholder.typicode.com/users" 
+      ○○="submit"
+      ○○="outerHTML ○○:3s"
+      ○○="#output"
+      ○○="username"
+    >
+      <label for="name">お名前：</label>
+      <input type="text" name="name">
+      <button type="submit">送信</button>
+    </form>  
+    <span id="output">
+      3秒後に表示されます
+      <template id="username">あなたのお名前は : {{name}}</template>
+    </span>
+</body>
+
+</html>
